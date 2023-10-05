@@ -101,7 +101,6 @@
         No episodes found
     </div>
     <div class="card" *ngIf="episodes?.length">
-        {{episodesPagination | json}}
         <p-table
             [value]="episodes"
             [tableStyle]="{ 'min-width': '60rem' }"
