@@ -17,7 +17,8 @@ export class AppMenuComponent implements OnInit {
             {
                 label: '24 Ore Bs',
                 items: [
-                    { label: 'Anime App', icon: 'pi pi-fw pi-book', routerLink: ['/anime'] }
+                    { label: 'Anime App', icon: 'pi pi-fw pi-book', routerLink: ['/anime'] },
+                    { label: 'Ripasso', icon: 'pi pi-fw pi-refresh', routerLink: ['/ripasso'] }
                 ]
             },
             {
