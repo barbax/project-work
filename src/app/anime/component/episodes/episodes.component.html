@@ -1,8 +1,23 @@
-<h1 class="text-center mt-3">{{episode?.title}}</h1>
-<h3 class="text-center">{{episode?.title_japanese}}</h3>
-<p>{{episode?.synopsis}}</p>
-<p>Pubblicato il  {{episode?.aired | date:'dd/MM/yyyy'}}</p>
-<p>Durata {{episode?.duration}} secondi</p>
+<div class="card mb-0" *ngIf="!loading">
+    <h1 class="text-center mt-3">{{ episode?.title }}</h1>
+    <h3 class="text-center">{{ episode?.title_japanese }}</h3>
+    <p>{{ episode?.synopsis }}</p>
+    <p>
+        <span class="font-bold">Published : </span
+        >{{ episode?.aired | date : "dd/MM/yyyy" }}
+    </p>
+    <p>
+        <span class="font-bold">Duration : </span
+        >{{ episode?.duration }} seconds
+    </p>
 
-<p class="link-primary text-end clickable" [routerLink]="['/anime',idAnime]"> Torna all'Anime</p>
-
+    <p-button
+        label="Back to anime"
+        styleClass="p-button-link"
+        [routerLink]="['/anime', idAnime]"
+    >
+    </p-button>
+</div>
+<div class="text-center" *ngIf="loading">
+    <p-progressSpinner></p-progressSpinner>
+</div>

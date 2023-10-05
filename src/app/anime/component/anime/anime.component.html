@@ -104,13 +104,11 @@
         {{episodesPagination | json}}
         <p-table
             [value]="episodes"
-            [rows]="25"
             [tableStyle]="{ 'min-width': '60rem' }"
-            [paginator]="true"
+            [paginator]="false"
             (onPage)="pageChange($event)"
             [totalRecords]="episodesPaginations?.items?.total"
-            
-            
+            [first]="this.currentPage - 1"
         >
             <ng-template pTemplate="header">
                 <tr>
@@ -135,19 +133,4 @@
             </ng-template>
         </p-table>
     </div>
-
-    <!-- <div
-        *ngIf="episodesPagination && episodesPagination.last_visible_page != 1"
-    >
-        <ngb-pagination
-            [(page)]="episodesPagination.current_page"
-            [pageSize]="episodesPagination.items.per_page"
-            [collectionSize]="episodesPagination.items.total"
-            [maxSize]="5"
-            [rotate]="true"
-            [boundaryLinks]="true"
-            (pageChange)="getEpisodes(idAnime, episodesPagination.current_page)"
-            class="d-flex justify-content-center"
-        ></ngb-pagination>
-    </div> -->
 </section>

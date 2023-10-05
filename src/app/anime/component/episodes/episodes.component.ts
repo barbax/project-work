@@ -11,6 +11,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class EpisodesComponent {
   episode: Episode | undefined;
   idAnime: number | undefined;
+  loading: boolean= false;
 
   constructor(
     private readonly animeService: AnimeService,
@@ -27,13 +28,16 @@ export class EpisodesComponent {
   }
 
   getEpisode(idAnime:number,idEpisode: number){
+    this.loading= true;
     this.animeService.animeEpisode(idAnime,idEpisode).subscribe(
       (r:Episode)=>{
         this.episode = r; 
+        this.loading= false;
       },
       (e:any)=>{
         alert('Errore HTTP');
         console.error(e);
+        this.loading=false;
       }
     );
 

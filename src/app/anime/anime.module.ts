@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HomeComponent } from './component/home/home.component';
 import { EpisodesComponent } from './component/episodes/episodes.component';
 import { AnimeStatsComponent } from './component/anime-stats/anime-stats.component';
