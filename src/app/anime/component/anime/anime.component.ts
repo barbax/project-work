@@ -5,6 +5,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Episode } from '../models/episode.model';
 import { EpisodesPaginated } from '../models/episodes-paginated.model';
 import { IPagination } from '../models/httpResponse.model';
+import { LogarithmicScale } from 'chart.js';
 
 @Component({
     selector: 'app-anime',
@@ -17,6 +18,7 @@ export class AnimeComponent {
     episodes: Episode[] | undefined;
     episodesPagination: IPagination | undefined;
     idAnime: number = 0;
+    currentPage: number = 1;
 
     constructor(
         private readonly animeService: AnimeService,
@@ -26,6 +28,7 @@ export class AnimeComponent {
         route.params.subscribe((p: Params) => {
             this.idAnime = <number>p['id_anime'];
             this.getAnime(this.idAnime);
+            this.currentPage = <number> p['page'] ? p['page'] : 1;
         });
     }
 
@@ -69,12 +72,21 @@ export class AnimeComponent {
     showEpisode(id: number) {
         this.router.navigate(['anime', this.anime?.id, 'episodes', id]);
     }
-    pageChange(event: any) {
-        //console.log('****episodes pagination event', event);
-        this.episodesPagination.current_page = event.first / event.rows + 1;
-        console.log(this.episodes);
+    // pageChange(event: any) {
+    //     //console.log('****episodes pagination event', event);
+    //     this.episodesPagination.current_page = event.first / event.rows + 1;
+    //     console.log(this.episodes);
 
-        this.getEpisodes(this.idAnime, this.episodesPagination.current_page);
-        console.log('current page', this.episodesPagination.current_page);
-    }
+    //     this.getEpisodes(this.idAnime, this.episodesPagination.current_page);
+    //     console.log('current page', this.episodesPagination.current_page);
+    // }
+
+    pageChange(event: any) {
+       
+        this.currentPage = event.first / event.rows + 1;
+        this.getEpisodes(this.idAnime, this.currentPage);
+        console.log('EVENTFIRST', event);
+        console.log('CURRENTPAGE', this.currentPage);
+        
+      }
 }

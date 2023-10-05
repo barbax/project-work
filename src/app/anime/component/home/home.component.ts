@@ -88,9 +88,12 @@ export class HomeComponent implements OnDestroy {
   }
 
   pageChange(event: any) {
-    this.pagination.current_page = event.first / event.rows + 1;
+   
     this.currentPage = event.first / event.rows + 1;
     this.search(this.currentPage)
+
+   
+    
   }
 
 }
