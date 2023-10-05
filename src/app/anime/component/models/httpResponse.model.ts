@@ -4,8 +4,8 @@ export interface IPagination {
     "current_page": number,
     "items": {
         "count": number,
-        "total": number,
-        "per_page": number
+        "total"?: number,
+        "per_page"?: number
     }
 }
 

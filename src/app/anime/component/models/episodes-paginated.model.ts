@@ -14,9 +14,8 @@ export class EpisodesPaginated {
         if (this.pagination) {
             this.pagination.current_page = current_page;
             this.pagination.items = {
-                per_page: 100,
                 count: this.episodes.length,
-                total: 100 * r.pagination!.last_visible_page
+                
             };
         }
     }

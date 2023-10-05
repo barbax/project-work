@@ -103,9 +103,9 @@
     <div class="card" *ngIf="episodes?.length">
         <p-table
             [value]="episodes"
-            [rows]="25"
+           
             [tableStyle]="{ 'min-width': '60rem' }"
-            [paginator]="true"
+            [paginator]="false"
             (onPage)="pageChange($event)"
             [totalRecords]="episodesPaginations?.items?.total"
             [first]="(this.currentPage)-1"
