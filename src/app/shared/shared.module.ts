@@ -9,6 +9,7 @@ import { ImageModule } from 'primeng/image';
 import { AccordionModule } from 'primeng/accordion';
 import { RatingModule } from 'primeng/rating';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 
 @NgModule({
     declarations: [],
@@ -23,6 +24,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
         AccordionModule,
         RatingModule,
         ProgressSpinnerModule,
+        BreadcrumbModule,
     ],
     exports: [
         CommonModule,
@@ -35,6 +37,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
         AccordionModule,
         RatingModule,
         ProgressSpinnerModule,
+        BreadcrumbModule,
     ],
 })
-export class SharedModule {}
+export class SharedModule { }

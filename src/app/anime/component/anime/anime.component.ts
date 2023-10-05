@@ -72,14 +72,7 @@ export class AnimeComponent {
     showEpisode(id: number) {
         this.router.navigate(['anime', this.anime?.id, 'episodes', id]);
     }
-    // pageChange(event: any) {
-    //     //console.log('****episodes pagination event', event);
-    //     this.episodesPagination.current_page = event.first / event.rows + 1;
-    //     console.log(this.episodes);
-
-    //     this.getEpisodes(this.idAnime, this.episodesPagination.current_page);
-    //     console.log('current page', this.episodesPagination.current_page);
-    // }
+ 
 
     pageChange(event: any) {
        
