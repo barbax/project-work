@@ -17,6 +17,7 @@ export class HomeComponent implements OnDestroy {
   pagination: IPagination | undefined;
   subscription: Subscription;
   loading: boolean = false;
+  currentPage: number = 1;
 
   constructor(
     private readonly router: Router,
@@ -26,26 +27,10 @@ export class HomeComponent implements OnDestroy {
     /**/
     this.subscription = this.route.queryParams.subscribe(
       (p: Params) => {
-        console.log(p);
-        if (p['q']) {
-          this.query = p['q'];
-          /*
-          if(p['page']){
-            let page = p['page'];
-          }else{
-            let page = 1;
-          }
-          */
-          //ESEMPIO OPERATORE TERNARIO
-          const condizione = true;
-          const variabile = condizione ? "VALORE SE VERO" : "VALORE SE FALSO";
-
-          const page = p['page'] ? p['page'] : 1;
-
-
-          this.search(page);
+          this.query = p['q'] ?? "";
+          this.currentPage = <number> p['page'] ? p['page'] : 1;
+          this.search(this.currentPage);
         }
-      }
     )
     /*
         this.route.params.subscribe(
@@ -66,13 +51,13 @@ export class HomeComponent implements OnDestroy {
   search(page: number = 1) {
     /*this.router.navigate(['search', this.query]);
     */
-    // this.router.navigate([], {
-    //   relativeTo: this.route,
-    //   queryParams: {
-    //     q: this.query,
-    //     page: page
-    //   }
-    // });
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        q: this.query,
+        page: page
+      }
+    });
     this.loading = true;
     this.animeService.search(this.query, page).subscribe({
       next: (r: AnimePaginated) => {
@@ -104,7 +89,8 @@ export class HomeComponent implements OnDestroy {
 
   pageChange(event: any) {
     this.pagination.current_page = event.first / event.rows + 1;
-    this.search(this.pagination.current_page)
+    this.currentPage = event.first / event.rows + 1;
+    this.search(this.currentPage)
   }
 
 }

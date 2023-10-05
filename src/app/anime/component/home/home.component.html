@@ -31,6 +31,7 @@
                     *ngIf="anime.length"
                     [tableStyle]="{ 'min-width': '60rem' }"
                     [paginator]="true"
+                    [first]="(25*this.currentPage)-1"
                     (onPage)="pageChange($event)"
                     [totalRecords]="pagination?.items?.total"
                     [lazy]="true"
