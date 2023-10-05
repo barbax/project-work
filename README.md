@@ -1,7 +1,6 @@
-# Sakai
+# Project Work Coding Academy - 1^ Edizione 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
-
+Questo progetto è il project work di "Allievo", esercizio conclusivo e riassuntivo della coding Academy. Faccciamo uso del Tema Sakai di Prime NG
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
