@@ -8,6 +8,7 @@ import { PaginatorModule } from 'primeng/paginator';
 import { ImageModule } from 'primeng/image';
 import { AccordionModule } from 'primeng/accordion';
 import { RatingModule } from 'primeng/rating';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
     declarations: [],
@@ -21,6 +22,7 @@ import { RatingModule } from 'primeng/rating';
         ImageModule,
         AccordionModule,
         RatingModule,
+        ProgressSpinnerModule,
     ],
     exports: [
         CommonModule,
@@ -32,6 +34,7 @@ import { RatingModule } from 'primeng/rating';
         ImageModule,
         AccordionModule,
         RatingModule,
+        ProgressSpinnerModule,
     ],
 })
 export class SharedModule {}

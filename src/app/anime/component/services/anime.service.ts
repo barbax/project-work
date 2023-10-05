@@ -25,7 +25,7 @@ export class AnimeService {
     animeEpisodes(id: number, page: number = 1): Observable<EpisodesPaginated> {
         return this.http
             .get<IHttpResponse>(
-                `${this.BASE_API}/anime/${id}/episodes?page=${page}`
+                `${this.BASE_API}/anime/${id}/episodes?items=25&page=${page}`
             )
             .pipe(map((r: IHttpResponse) => new EpisodesPaginated(r, page)));
     }
