@@ -1,0 +1,70 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card mb-0">
+            <div class="form-inline row pt-3 flex">
+                <div class="form-group col-10">
+                    <input
+                        class="w-full"
+                        type="text"
+                        pInputText
+                        placeholder="Search..."
+                        [(ngModel)]="query"
+                        (keyup.enter)="search()"
+                    />
+                </div>
+                <div class="col-2">
+                    <p-button
+                        label="Search"
+                        icon="pi pi-search"
+                        [loading]="loading"
+                        (click)="search()"
+                    ></p-button>
+                </div>
+            </div>
+
+            <section>
+                <!-- <app-anime-stats [anime]="anime"></app-anime-stats> -->
+
+                <p-table
+                    [value]="anime"
+                    [rows]="25"
+                    *ngIf="anime.length"
+                    [tableStyle]="{ 'min-width': '60rem' }"
+                    [paginator]="true"
+                    (onPage)="pageChange($event)"
+                    [totalRecords]="pagination?.items?.total"
+                    [lazy]="true"
+                >
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th class="text-center">Locandina</th>
+                            <th class="text-center">Nome</th>
+                            <th class="text-center">Genere</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-a>
+                        <tr class="cursor-pointer" (click)="show(a.id)">
+                            <td class="text-center">
+                                <p-image
+                                    [src]="a.thumbnail"
+                                    [alt]="a.title"
+                                    width="50"
+                                    heigth="80"
+                                ></p-image>
+                            </td>
+                            <td class="text-center">
+                                {{ a.title }}<br />
+                                <small> {{ a.title_japanese }} </small>
+                            </td>
+                            <td class="text-center">
+                                <span *ngFor="let g of a.genres">
+                                    {{ g.name }}
+                                </span>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </section>
+        </div>
+    </div>
+</div>
