@@ -101,6 +101,7 @@
         No episodes found
     </div>
     <div class="card" *ngIf="episodes?.length">
+        {{episodesPagination | json}}
         <p-table
             [value]="episodes"
             [rows]="25"
@@ -108,7 +109,7 @@
             [paginator]="true"
             (onPage)="pageChange($event)"
             [totalRecords]="episodesPaginations?.items?.total"
-            [first]="(this.currentPage)-1"
+            
             
         >
             <ng-template pTemplate="header">
