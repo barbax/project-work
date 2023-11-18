@@ -1,0 +1,16 @@
+<p-carousel [value]="products" (slide)="onSlide()">
+    <ng-template let-product pTemplate="item">
+        <p-card>
+        <div class="picsum-img-wrapper d-flex justify-content-center">
+
+<img [src]="product.Image" alt="Random first slide">    
+    </div>
+
+
+    </p-card>
+        <div >
+            <h3>Jokes</h3>
+            <p>{{randomJoke.value}}</p>
+        </div>
+    </ng-template>
+</p-carousel>

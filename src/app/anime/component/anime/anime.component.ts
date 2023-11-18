@@ -48,6 +48,8 @@ export class AnimeComponent {
                 this.statistics = r;
             },
             (e: any) => {
+                alert('Errore retrive Statistics');
+
 
                 console.error('Statistics ERROR', e);
             }
@@ -63,6 +65,7 @@ export class AnimeComponent {
                 this.episodesPagination = r.pagination;
             },
             (e: any) => {
+                alert('Errore retrive Episodes');
 
                 console.error('Episodes ERROR', e);
             }

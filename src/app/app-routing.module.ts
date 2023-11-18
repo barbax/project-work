@@ -1,3 +1,5 @@
+import { ChuckModule } from './chuck/chuck.module';
+
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './demo/components/notfound/notfound.component';
@@ -9,8 +11,14 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
             {
                 path: '', component: AppLayoutComponent,
                 children: [
+                    // {
+                    //     path: 'home', loadChildren: () => import('./anime/component/home/home.module').then(m => m.HomeModule)
+                    // }
                     { path: 'anime', loadChildren: () => import('./anime/anime.module').then(m => m.AnimeModule) },
-                    { path: 'ripasso', loadChildren: () => import('./ripasso/ripasso.module').then(m => m.RipassoModule) },
+                  // {   path: 'breweries',  loadChildren: () => import('./breweries/breweries.module').then(m => m.BreweriesModule)   },
+                    {  path: 'chuck', loadChildren: () => import('./chuck/chuck.module').then(m => m.ChuckModule)},
+                //   {path: '', 
+                //  loadChildren: () => import('./app/app.module').then((m) => m.HomeModule)},
                     { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
                     { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
                     { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },

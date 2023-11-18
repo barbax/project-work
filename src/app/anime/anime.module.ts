@@ -16,5 +16,7 @@ import { SharedModule } from '../shared/shared.module';
         AnimeContainerComponent,
     ],
     imports: [animeRouter, SharedModule],
+
 })
+
 export class AnimeModule {}

@@ -42,15 +42,15 @@ export class HomeComponent implements OnDestroy {
           });*/
   }
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-    console.log('**Home On Destroy e unsubscribe');
+   this.subscription.unsubscribe();
+     console.log('**Home On Destroy e unsubscribe');
   }
 
 
 
   search(page: number = 1) {
-    /*this.router.navigate(['search', this.query]);
-    */
+    // this.router.navigate(['search', this.query]);
+    
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
